@@ -35,6 +35,7 @@ public class PasswordManager : MonoBehaviour {
 		for (int i = 0; i < this._passwordLength; i++) {
 			if (this._currentPassword.ElementAt (i) != this._passwordAsChars.ElementAt (i))
 			{
+				Debug.LogFormat ("Password Incorrect. Last Key pushed {0}", letter.ToString ());
 				return;
 			}
 		}
