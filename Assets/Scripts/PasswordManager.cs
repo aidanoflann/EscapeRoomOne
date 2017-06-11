@@ -30,6 +30,7 @@ public class PasswordManager : MonoBehaviour {
 	public void EnterLetter(char letter)
 	{
 		// add the current letter to the queue
+		this._currentPassword.Dequeue();
 		this._currentPassword.Enqueue (letter);
 
 		for (int i = 0; i < this._passwordLength; i++) {
@@ -39,6 +40,7 @@ public class PasswordManager : MonoBehaviour {
 				return;
 			}
 		}
+		Debug.Log ("success! Password correct!");
 		this.TriggerResult ();
 	}
 
