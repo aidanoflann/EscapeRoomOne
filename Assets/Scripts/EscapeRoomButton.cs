@@ -17,11 +17,16 @@ public class EscapeRoomButton : MonoBehaviour
 	void Update () {
 		
 	}
+
+	public void PushButton()
+	{
+		this._passwordManager.EnterLetter (this.Letter);
+	}
 	
 	#region TriggerMethods
 	public void OnTriggerEnter(Collider other)
 	{
-		this._passwordManager.EnterLetter (this.Letter);
+		this.PushButton ();	
 	}
 	#endregion
 	
