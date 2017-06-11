@@ -55,8 +55,12 @@ public class ControllerGrabObject : MonoBehaviour {
 			GetComponent<FixedJoint>().connectedBody = null;
 			Destroy(GetComponent<FixedJoint>());
 			// 3
-			objectInHand.GetComponent<Rigidbody>().velocity = Controller.velocity;
-			objectInHand.GetComponent<Rigidbody>().angularVelocity = Controller.angularVelocity;
+			Rigidbody handObjectRigidBody = objectInHand.GetComponent<Rigidbody>();
+			if (handObjectRigidBody)
+			{
+				handObjectRigidBody.velocity = Controller.velocity;
+				handObjectRigidBody.angularVelocity = Controller.angularVelocity;	
+			}
 		}
 		// 4
 		objectInHand = null;
