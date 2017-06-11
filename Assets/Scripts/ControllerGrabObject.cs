@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 //https://www.raywenderlich.com/149239/htc-vive-tutorial-unity
@@ -40,13 +41,16 @@ public class ControllerGrabObject : MonoBehaviour {
 		// 2
 		var joint = AddFixedJoint();
 		joint.connectedBody = objectInHand.GetComponent<Rigidbody>();
+		Debug.LogFormat("Added {0} to connected body", objectInHand.ToString());
 	}
 	
 	private void ReleaseObject()
 	{
 		// 1
+		Debug.LogFormat("Releasing object");
 		if (GetComponent<FixedJoint>())
 		{
+			Debug.LogFormat("FixedJoint found, removing.");
 			// 2
 			GetComponent<FixedJoint>().connectedBody = null;
 			Destroy(GetComponent<FixedJoint>());
@@ -95,6 +99,7 @@ public class ControllerGrabObject : MonoBehaviour {
 		{
 			if (collidingObject)
 			{
+				Debug.LogFormat("Grabbing {0}", collidingObject.ToString());
 				GrabObject();
 			}
 		}
