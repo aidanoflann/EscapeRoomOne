@@ -6,12 +6,6 @@ public class e_button : MonoBehaviour
 {
 
 	public GameObject Painting;
-	private SphereCollider collider;
-	
-	void Awake()
-	{
-		collider = GetComponent<SphereCollider>();
-	}
 	
 	// Update is called once per frame
 	void Update () {
